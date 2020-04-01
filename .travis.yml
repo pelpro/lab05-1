@@ -1,0 +1,11 @@
+language: cpp
+
+script:
+        - cmake --build _build --target install
+        - cmake --build _build --target test -- ARGS=--verbose
+addons:
+        apt:
+                packages:
+                        - cmake
+                        - cmake-data
+

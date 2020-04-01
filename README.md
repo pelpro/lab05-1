@@ -36,7 +36,10 @@ $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab05
 ```sh
 $ mkdir third-party
 $ git submodule add https://github.com/google/googletest third-party/gtest
+cloning ...
+done
 $ cd third-party/gtest && git checkout release-1.8.1 && cd ../..
+Note: checking out 'release-1.8.1'
 $ git add third-party/gtest
 $ git commit -m"added gtest framework"
 ```
@@ -86,11 +89,33 @@ EOF
 ```sh
 $ cmake -H. -B_build -DBUILD_TESTS=ON
 $ cmake --build _build
+... собирается...
+[100%] Built target equation
 $ cmake --build _build --target test
+Running tests...
+Test project /home/dimka/Desktop/птз8с/ak/hw/nevstruev.dmitriy/workspace/projects/lab05/_build
+    Start 1: check
+1/1 Test #1: check ............................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
+
+
 ```
 
 ```sh
 $ _build/check
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from Print
+[ RUN      ] Print.InFileStream
+[       OK ] Print.InFileStream (0 ms)
+[----------] 1 test from Print (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (0 ms total)
+[  PASSED  ] 1 test.
 $ cmake --build _build --target test -- ARGS=--verbose
 ```
 
