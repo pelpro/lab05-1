@@ -1,7 +1,6 @@
 language: cpp
 
 script:
-        - ./configure --enable-gcov
         - cmake -H. -B_build -DBUILD_TESTS=ON
         - cmake --build _build
         - cmake --build _build --target test -- ARGS=--verbose
