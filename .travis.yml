@@ -10,5 +10,9 @@ addons:
                         - cmake
                         - cmake-data
 
-script: "sbt clean coverage test"
-after_success: "sbt coverageReport coveralls"
+before_script:
+        - composer install --dev
+script: 
+        - phpunit --coverage-clover build/logs/clover.xml
+after_success:
+        - php vendor/bin/coveralls -v
