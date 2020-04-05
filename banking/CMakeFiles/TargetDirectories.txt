@@ -1,3 +1,0 @@
-/home/dimka/Desktop/птз8с/ak/hw/nevstruev.dmitriy/workspace/projects/lab05/banking/CMakeFiles/rebuild_cache.dir
-/home/dimka/Desktop/птз8с/ak/hw/nevstruev.dmitriy/workspace/projects/lab05/banking/CMakeFiles/banking.dir
-/home/dimka/Desktop/птз8с/ak/hw/nevstruev.dmitriy/workspace/projects/lab05/banking/CMakeFiles/edit_cache.dir
