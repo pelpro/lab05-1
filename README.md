@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/nevstruevdmitriy/lab05/badge.svg)](https://coveralls.io/github/nevstruevdmitriy/lab05)
+
 [![Build Status](https://travis-ci.com/nevstruevdmitriy/lab05.svg?branch=master)](https://travis-ci.com/nevstruevdmitriy/lab05)
 
 ## Laboratory work V
