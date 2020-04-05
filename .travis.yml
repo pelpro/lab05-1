@@ -12,5 +12,5 @@ addons:
 
 before_script:
         - pip install --user cpp-coveralls
-after_success:
+after_script:
         - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
