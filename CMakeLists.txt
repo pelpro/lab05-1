@@ -16,11 +16,14 @@ target_include_directories(print PUBLIC
 )
 
 if(BUILD_TESTS)
+  add_subdirectory(banking)
+  include_directories(banking)
+
   enable_testing()
   add_subdirectory(third-party/gtest)
   file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
   add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
-  target_link_libraries(check ${PROJECT_NAME} gtest_main)
+  target_link_libraries(check ${PROJECT_NAME} gtest_main gmock_main banking)
   add_test(NAME check COMMAND check)
 endif()
 
