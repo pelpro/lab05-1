@@ -75,7 +75,7 @@ TEST(Transaction, NotEnoughFundsTransaction)
 {
         Account petya(1, 1000), vasya(2, 1000);
         Transaction transaction;
-        EXPECT_THROW(transaction.Make(petya, vasya, 1900), std::logic_error);
+        transaction.Make(petya, vasya, 1900);
 
 	EXPECT_EQ(petya.GetBalance(), 1000);
         EXPECT_EQ(vasya.GetBalance(), 1000);
