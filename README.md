@@ -19,17 +19,20 @@ $ open https://github.com/google/googletest
 
 ## Tutorial
 
+Переменные
 ```sh
 $ export GITHUB_USERNAME=<имя_пользователя>
 $ alias gsed=sed # for *-nix system
 ```
 
+дириктория
 ```sh
 $ cd ${GITHUB_USERNAME}/workspace
 $ pushd .
 $ source scripts/activate
 ```
 
+новый реп
 ```sh
 $ git clone https://github.com/${GITHUB_USERNAME}/lab04 projects/lab05
 $ cd projects/lab05
@@ -37,6 +40,7 @@ $ git remote remove origin
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab05
 ```
 
+доавляем подпроэкт - gtest
 ```sh
 $ mkdir third-party
 $ git submodule add https://github.com/google/googletest third-party/gtest
@@ -48,6 +52,7 @@ $ git add third-party/gtest
 $ git commit -m"added gtest framework"
 ```
 
+доавляем новую опцию собирать ли тесты
 ```sh
 $ gsed -i '/option(BUILD_EXAMPLES "Build examples" OFF)/a\
 option(BUILD_TESTS "Build tests" OFF)
@@ -65,6 +70,7 @@ endif()
 EOF
 ```
 
+добавляем тест
 ```sh
 $ mkdir tests
 $ cat > tests/test1.cpp <<EOF
@@ -90,6 +96,7 @@ TEST(Print, InFileStream)
 EOF
 ```
 
+собираем и компилируем
 ```sh
 $ cmake -H. -B_build -DBUILD_TESTS=ON
 $ cmake --build _build
@@ -108,6 +115,7 @@ Total Test time (real) =   0.00 sec
 
 ```
 
+запускаем, проверяем
 ```sh
 $ _build/check
 [==========] Running 1 test from 1 test case.
@@ -123,6 +131,7 @@ $ _build/check
 $ cmake --build _build --target test -- ARGS=--verbose
 ```
 
+незначительные изменения в конфигах
 ```sh
 $ gsed -i 's/lab04/lab05/g' README.md
 $ gsed -i 's/\(DCMAKE_INSTALL_PREFIX=_install\)/\1 -DBUILD_TESTS=ON/' .travis.yml
@@ -131,10 +140,13 @@ $ gsed -i '/cmake --build _build --target install/a\
 ' .travis.yml
 ```
 
+проверяем на валидность
 ```sh
 $ travis lint
+Hooray, .travis.yml looks valid :)
 ```
 
+Пушим всё в мастер
 ```sh
 $ git add .travis.yml
 $ git add tests
@@ -143,11 +155,13 @@ $ git commit -m"added tests"
 $ git push origin master
 ```
 
+логинимся в травис и подключаем реп
 ```sh
 $ travis login --auto
 $ travis enable
 ```
 
+делаем скриншот 
 ```sh
 $ mkdir artifacts
 $ sleep 20s && gnome-screenshot --file artifacts/screenshot.png
